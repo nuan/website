@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuan Project | 温暖而清晰的数字产品主页</title>
+    <title>Nuan Project | 温暖而清晰的数字产品</title>
     <style>
         :root {
             --bg: #f6f3ee;
@@ -22,34 +22,20 @@
             --content-width: 1180px;
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             margin: 0;
             color: var(--text);
-            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
             background:
                 radial-gradient(circle at top left, rgba(219, 92, 57, 0.16), transparent 28%),
                 radial-gradient(circle at 85% 12%, rgba(244, 196, 165, 0.52), transparent 22%),
                 linear-gradient(180deg, #fbf8f3 0%, #f3ede3 100%);
         }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        
         .page-shell {
             width: min(calc(100% - 32px), var(--content-width));
             margin: 0 auto;
@@ -102,9 +88,7 @@
             font-size: 0.95rem;
         }
 
-        .nav a:hover {
-            color: var(--text);
-        }
+        .nav a:hover { color: var(--text); }
 
         .nav-cta {
             padding: 12px 18px;
@@ -113,9 +97,7 @@
             background: var(--text);
         }
 
-        .hero {
-            padding: 72px 0 36px;
-        }
+        .hero { padding: 72px 0 36px; }
 
         .hero-grid {
             display: grid;
@@ -164,18 +146,13 @@
             font-weight: 600;
         }
 
-        h1,
-        h2,
-        h3,
-        p {
-            margin: 0;
-        }
+        h1, h2, h3, p { margin: 0; }
 
         .hero h1 {
             margin-top: 22px;
-            font-size: clamp(2.9rem, 6vw, 5.6rem);
-            line-height: 0.96;
-            letter-spacing: -0.05em;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
         }
 
         .hero p {
@@ -201,12 +178,10 @@
             padding: 0 22px;
             border-radius: 999px;
             font-weight: 700;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .button:hover {
-            transform: translateY(-2px);
-        }
+        .button:hover { transform: translateY(-2px); }
 
         .button-primary {
             color: #fff;
@@ -253,9 +228,7 @@
             flex-direction: column;
             justify-content: space-between;
             gap: 22px;
-            background:
-                linear-gradient(180deg, rgba(255, 253, 249, 0.92), rgba(255, 245, 238, 0.82)),
-                var(--surface);
+            background: linear-gradient(180deg, rgba(255, 253, 249, 0.92), rgba(255, 245, 238, 0.82)), var(--surface);
         }
 
         .panel-art {
@@ -263,8 +236,7 @@
             border-radius: 26px;
             position: relative;
             overflow: hidden;
-            background:
-                linear-gradient(135deg, rgba(219, 92, 57, 0.92), rgba(242, 153, 114, 0.94));
+            background: linear-gradient(135deg, rgba(219, 92, 57, 0.92), rgba(242, 153, 114, 0.94));
         }
 
         .panel-art::before,
@@ -275,19 +247,8 @@
             background: rgba(255, 255, 255, 0.14);
         }
 
-        .panel-art::before {
-            width: 180px;
-            height: 180px;
-            top: -38px;
-            right: -24px;
-        }
-
-        .panel-art::after {
-            width: 220px;
-            height: 220px;
-            left: -60px;
-            bottom: -70px;
-        }
+        .panel-art::before { width: 180px; height: 180px; top: -38px; right: -24px; }
+        .panel-art::after { width: 220px; height: 220px; left: -60px; bottom: -70px; }
 
         .panel-stack {
             position: absolute;
@@ -297,8 +258,7 @@
             gap: 14px;
         }
 
-        .panel-chip,
-        .panel-note {
+        .panel-chip, .panel-note {
             width: fit-content;
             padding: 10px 14px;
             border-radius: 999px;
@@ -314,19 +274,10 @@
             background: rgba(255, 255, 255, 0.16);
         }
 
-        .panel-text {
-            display: grid;
-            gap: 12px;
-        }
+        .panel-text { display: grid; gap: 12px; }
+        .panel-text p { color: var(--muted); line-height: 1.75; }
 
-        .panel-text p {
-            color: var(--muted);
-            line-height: 1.75;
-        }
-
-        section {
-            padding: 28px 0;
-        }
+        section { padding: 28px 0; }
 
         .section-head {
             display: flex;
@@ -351,16 +302,8 @@
             letter-spacing: 0.12em;
         }
 
-        .projects-grid,
-        .team-grid,
-        .contact-grid {
-            display: grid;
-            gap: 20px;
-        }
-
-        .projects-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
+        .projects-grid, .team-grid, .contact-grid { display: grid; gap: 20px; }
+        .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
         .section-card {
             padding: 28px;
@@ -379,8 +322,7 @@
             background: rgba(219, 92, 57, 0.08);
         }
 
-        .project-tag,
-        .team-role {
+        .project-tag, .team-role {
             display: inline-flex;
             align-items: center;
             width: fit-content;
@@ -424,14 +366,9 @@
             color: var(--text);
         }
 
-        .team-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
+        .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
-        .team-card {
-            display: grid;
-            gap: 16px;
-        }
+        .team-card { display: grid; gap: 16px; }
 
         .avatar {
             width: 68px;
@@ -446,14 +383,9 @@
             box-shadow: 0 14px 30px rgba(24, 32, 40, 0.16);
         }
 
-        .team-card h3 {
-            margin: 0;
-            font-size: 1.4rem;
-        }
+        .team-card h3 { margin: 0; font-size: 1.4rem; }
 
-        .contact-grid {
-            grid-template-columns: 1.1fr 0.9fr;
-        }
+        .contact-grid { grid-template-columns: 1.1fr 0.9fr; }
 
         .contact-card {
             padding: 32px;
@@ -489,48 +421,17 @@
         }
 
         @media (max-width: 1024px) {
-            .hero-grid,
-            .contact-grid,
-            .team-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-copy,
-            .hero-panel {
-                padding: 32px;
-            }
+            .hero-grid, .contact-grid, .team-grid, .projects-grid { grid-template-columns: 1fr; }
+            .hero-copy, .hero-panel { padding: 32px; }
         }
 
         @media (max-width: 720px) {
-            .topbar-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav {
-                flex-wrap: wrap;
-            }
-
-            .hero {
-                padding-top: 34px;
-            }
-
-            .hero-copy,
-            .hero-panel,
-            .section-card,
-            .contact-card {
-                padding: 24px;
-            }
-
-            .hero-metrics {
-                grid-template-columns: 1fr;
-            }
-
-            .section-head {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            .topbar-inner { flex-direction: column; align-items: flex-start; }
+            .nav { flex-wrap: wrap; }
+            .hero { padding-top: 34px; }
+            .hero-copy, .hero-panel, .section-card, .contact-card { padding: 24px; }
+            .hero-metrics { grid-template-columns: 1fr; }
+            .section-head { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -542,10 +443,10 @@
                 <span>Nuan Project</span>
             </a>
             <nav class="nav">
-                <a href="#projects">Projects</a>
-                <a href="#team">Team</a>
-                <a href="#contact">Contact</a>
-                <a class="nav-cta" href="#contact">Start a Conversation</a>
+                <a href="#projects">项目</a>
+                <a href="#team">团队</a>
+                <a href="#contact">联系我们</a>
+                <a class="nav-cta" href="#contact">开始交流</a>
             </nav>
         </div>
     </header>
@@ -554,29 +455,28 @@
         <section class="hero">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="eyebrow">Designing clear digital experiences</span>
-                    <h1>Build warm, polished products that people actually enjoy using.</h1>
+                    <span class="eyebrow">打造温暖、精致的数字产品</span>
+                    <h1>用清晰的设计，创造让人愉悦的产品体验。</h1>
                     <p>
-                        Nuan Project focuses on approachable digital experiences for product websites and practical tools.
-                        We combine product thinking, modern frontend craftsmanship, and sharp visual systems to turn ideas
-                        into pages that feel refined from the first screen.
+                        Nuan Project 专注于易用的数字体验，包括产品官网和实用工具。
+                        我们结合产品思维、现代前端技术和精致的视觉系统，将想法转化为从第一屏就让人感到舒适的产品。
                     </p>
                     <div class="hero-actions">
-                        <a class="button button-primary" href="#projects">Explore Projects</a>
-                        <a class="button button-secondary" href="#team">Meet the Team</a>
+                        <a class="button button-primary" href="#projects">浏览项目</a>
+                        <a class="button button-secondary" href="#team">了解团队</a>
                     </div>
                     <div class="hero-metrics">
                         <div class="metric">
                             <strong>02</strong>
-                            <span>Core projects showcased</span>
+                            <span>核心项目展示</span>
                         </div>
                         <div class="metric">
                             <strong>03</strong>
-                            <span>Team roles in collaboration</span>
+                            <span>团队角色协作</span>
                         </div>
                         <div class="metric">
                             <strong>24h</strong>
-                            <span>Fast contact turnaround target</span>
+                            <span>快速响应目标</span>
                         </div>
                     </div>
                 </div>
@@ -584,16 +484,15 @@
                 <aside class="hero-panel">
                     <div class="panel-art">
                         <div class="panel-stack">
-                            <div class="panel-chip">Creative frontend system</div>
-                            <div class="panel-note">A clean homepage should feel calm, modern, and highly legible on every screen size.</div>
+                            <div class="panel-chip">创意前端系统</div>
+                            <div class="panel-note">一个干净的首页应该让人感到平静、现代，并且在任何屏幕尺寸上都清晰易读。</div>
                         </div>
                     </div>
                     <div class="panel-text">
-                        <span class="section-label">Overview</span>
-                        <h2>Focused on elegant presentation with practical structure.</h2>
+                        <span class="section-label">概述</span>
+                        <h2>专注于优雅的呈现和实用的结构。</h2>
                         <p>
-                            This landing page is designed as a compact brand front door: fast to scan, visually balanced,
-                            and clear about what Nuan Project is building right now.
+                            这个落地页设计为紧凑的品牌门面：快速浏览、视觉平衡、清晰展示 Nuan Project 当前正在建设的内容。
                         </p>
                     </div>
                 </aside>
@@ -603,42 +502,40 @@
         <section id="projects">
             <div class="section-head">
                 <div>
-                    <div class="section-label">Projects Showcase</div>
-                    <h2>Current work under the Nuan Project umbrella.</h2>
+                    <div class="section-label">项目展示</div>
+                    <h2>Nuan Project 旗下的当前项目。</h2>
                 </div>
                 <p>
-                    Two active entries define the current homepage story: the official Website experience and the Lobster Work platform.
+                    两个活跃的项目构成了当前首页的故事：官方网站和龙虾工作平台。
                 </p>
             </div>
             <div class="projects-grid">
                 <article class="section-card">
-                    <span class="project-tag">Website</span>
-                    <h3>Official Website</h3>
+                    <span class="project-tag">官方网站</span>
+                    <h3>Nuan 官网</h3>
                     <p>
-                        The public-facing home for Nuan Project. It introduces the brand, gathers project context, and sets
-                        a visual standard for future product pages.
+                        Nuan Project 的公开门面。介绍品牌、收集项目背景，为未来的产品页面设定视觉标准。
                     </p>
                     <div class="project-meta">
-                        <span>Landing page</span>
-                        <span>Brand presentation</span>
-                        <span>Responsive frontend</span>
+                        <span>落地页</span>
+                        <span>品牌展示</span>
+                        <span>响应式前端</span>
                     </div>
-                    <a class="project-link" href="#contact">Discuss this project →</a>
+                    <a class="project-link" href="#contact">讨论这个项目 →</a>
                 </article>
 
                 <article class="section-card">
-                    <span class="project-tag">Lobster Work</span>
-                    <h3>Lobster Work</h3>
+                    <span class="project-tag">龙虾打工</span>
+                    <h3>龙虾打工平台</h3>
                     <p>
-                        A practical platform concept focused on connecting people with flexible work opportunities through a
-                        direct and friendly digital workflow.
+                        一个实用的平台概念，专注于通过直接、友好的数字流程，将人们与灵活的工作机会连接起来。
                     </p>
                     <div class="project-meta">
-                        <span>Platform concept</span>
-                        <span>User flow design</span>
-                        <span>Product exploration</span>
+                        <span>平台概念</span>
+                        <span>用户流程设计</span>
+                        <span>产品探索</span>
                     </div>
-                    <a class="project-link" href="#contact">Talk about collaboration →</a>
+                    <a class="project-link" href="#contact">谈谈合作 →</a>
                 </article>
             </div>
         </section>
@@ -646,38 +543,38 @@
         <section id="team">
             <div class="section-head">
                 <div>
-                    <div class="section-label">Team</div>
-                    <h2>A small team with clear ownership.</h2>
+                    <div class="section-label">团队</div>
+                    <h2>小而精的团队，职责清晰。</h2>
                 </div>
                 <p>
-                    Nuan Project moves with a compact structure so decisions stay fast and every part of the product has direct accountability.
+                    Nuan Project 以紧凑的架构运作，以便决策保持快速，每个产品部分都有直接的责任人。
                 </p>
             </div>
             <div class="team-grid">
                 <article class="section-card team-card">
                     <div class="avatar">AT</div>
-                    <div class="team-role">Manager</div>
+                    <div class="team-role">管理者</div>
                     <h3>Atlas</h3>
                     <p>
-                        Guides product direction, prioritization, and collaboration across initiatives to keep execution focused.
+                        指导产品方向、优先级排序和跨 initiatives 的协作，保持执行聚焦。
                     </p>
                 </article>
 
                 <article class="section-card team-card">
                     <div class="avatar">FE</div>
-                    <div class="team-role">Frontend</div>
+                    <div class="team-role">前端开发</div>
                     <h3>Codex Agent</h3>
                     <p>
-                        Shapes the interface system, responsive layouts, and implementation quality for polished user-facing experiences.
+                        塑造界面系统、响应式布局和实现质量，打造精致的用户体验。
                     </p>
                 </article>
 
                 <article class="section-card team-card">
                     <div class="avatar">BE</div>
-                    <div class="team-role">Backend</div>
+                    <div class="team-role">后端开发</div>
                     <h3>Codex Agent</h3>
                     <p>
-                        Supports service architecture, data flow, and delivery foundations needed to turn concepts into working products.
+                        支持服务架构、数据流和交付基础设施，将概念转化为可工作的产品。
                     </p>
                 </article>
             </div>
@@ -686,50 +583,50 @@
         <section id="contact">
             <div class="section-head">
                 <div>
-                    <div class="section-label">Contact</div>
-                    <h2>Start the next conversation from here.</h2>
+                    <div class="section-label">联系我们</div>
+                    <h2>从这里开始下一次对话。</h2>
                 </div>
                 <p>
-                    Whether you want to discuss a collaboration, a new homepage, or a product idea, this section gives a simple entry point.
+                    无论您想讨论合作、新的首页还是产品想法，这个部分都提供了一个简单的切入点。
                 </p>
             </div>
             <div class="contact-grid">
                 <div class="contact-card">
-                    <h3>Let's build something clear and useful.</h3>
+                    <h3>让我们一起构建清晰、有用的产品。</h3>
                     <p style="margin-top: 14px; color: var(--muted); line-height: 1.8;">
-                        Nuan Project values concise communication, deliberate design, and practical delivery. Reach out with your
-                        project background, goals, and timeline to start with the right context.
+                        Nuan Project 重视简洁的沟通、精心设计的产品和务实的交付。
+                        请带上您的项目背景、目标和时间线，让我们从正确的上下文开始。
                     </p>
                     <div class="contact-list">
                         <div class="contact-item">
-                            <small>Email</small>
+                            <small>邮箱</small>
                             <strong>hello@nuan-project.local</strong>
                         </div>
                         <div class="contact-item">
-                            <small>Location</small>
-                            <strong>Shanghai · Remote Friendly</strong>
+                            <small>位置</small>
+                            <strong>上海 · 远程友好</strong>
                         </div>
                         <div class="contact-item">
-                            <small>Response Window</small>
-                            <strong>Within 1 business day</strong>
+                            <small>响应时间</small>
+                            <strong>1 个工作日内</strong>
                         </div>
                     </div>
                 </div>
 
                 <aside class="contact-card">
-                    <h3>What to include</h3>
+                    <h3>建议包含的内容</h3>
                     <div class="contact-list">
                         <div class="contact-item">
                             <small>01</small>
-                            <strong>Project summary and current stage</strong>
+                            <strong>项目概要和当前阶段</strong>
                         </div>
                         <div class="contact-item">
                             <small>02</small>
-                            <strong>Main audience or business scenario</strong>
+                            <strong>主要受众或业务场景</strong>
                         </div>
                         <div class="contact-item">
                             <small>03</small>
-                            <strong>Expected timeline and collaboration scope</strong>
+                            <strong>预期时间线和合作范围</strong>
                         </div>
                     </div>
                 </aside>
@@ -738,7 +635,7 @@
     </main>
 
     <footer class="page-shell footer">
-        <p>© 2026 Nuan Project. Crafted for a clean first impression.</p>
+        <p>© 2026 Nuan Project。精心打造的第一印象。</p>
     </footer>
 </body>
 </html>
