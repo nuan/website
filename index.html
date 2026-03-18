@@ -3,51 +3,742 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuan Project</title>
+    <title>Nuan Project | 温暖而清晰的数字产品主页</title>
     <style>
+        :root {
+            --bg: #f6f3ee;
+            --surface: rgba(255, 255, 255, 0.72);
+            --surface-strong: #fffdf9;
+            --text: #182028;
+            --muted: #5f6874;
+            --line: rgba(24, 32, 40, 0.08);
+            --accent: #db5c39;
+            --accent-deep: #a63f24;
+            --accent-soft: #f3d8ca;
+            --shadow: 0 24px 60px rgba(38, 27, 18, 0.12);
+            --radius-xl: 32px;
+            --radius-lg: 24px;
+            --radius-md: 18px;
+            --content-width: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 50px 20px;
-            text-align: center;
+            margin: 0;
+            color: var(--text);
+            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(219, 92, 57, 0.16), transparent 28%),
+                radial-gradient(circle at 85% 12%, rgba(244, 196, 165, 0.52), transparent 22%),
+                linear-gradient(180deg, #fbf8f3 0%, #f3ede3 100%);
         }
-        h1 { color: #333; }
-        .projects { margin-top: 40px; }
-        .project-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: left;
-        }
-        .project-card h2 { margin-top: 0; }
-        .btn {
-            display: inline-block;
-            background: #007bff;
-            color: white;
-            padding: 10px 20px;
+
+        a {
+            color: inherit;
             text-decoration: none;
-            border-radius: 5px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .page-shell {
+            width: min(calc(100% - 32px), var(--content-width));
+            margin: 0 auto;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(14px);
+            background: rgba(246, 243, 238, 0.72);
+            border-bottom: 1px solid rgba(24, 32, 40, 0.05);
+        }
+
+        .topbar-inner {
+            width: min(calc(100% - 32px), var(--content-width));
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .brand-mark {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            color: #fff;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--accent), #ef8d59);
+            box-shadow: 0 12px 24px rgba(166, 63, 36, 0.24);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            padding: 12px 18px;
+            border-radius: 999px;
+            color: #fff;
+            background: var(--text);
+        }
+
+        .hero {
+            padding: 72px 0 36px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .hero-copy,
+        .hero-panel,
+        .section-card,
+        .contact-card {
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+            background: var(--surface);
+        }
+
+        .hero-copy {
+            padding: 56px;
+            border-radius: var(--radius-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-copy::after {
+            content: "";
+            position: absolute;
+            inset: auto -40px -55px auto;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(219, 92, 57, 0.1);
+            filter: blur(10px);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            color: var(--accent-deep);
+            background: rgba(219, 92, 57, 0.1);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        .hero h1 {
+            margin-top: 22px;
+            font-size: clamp(2.9rem, 6vw, 5.6rem);
+            line-height: 0.96;
+            letter-spacing: -0.05em;
+        }
+
+        .hero p {
+            max-width: 42rem;
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 1.08rem;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 0 22px;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent), #ef8757);
+            box-shadow: 0 14px 30px rgba(166, 63, 36, 0.22);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.68);
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .metric {
+            padding: 18px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.66);
+            border: 1px solid rgba(24, 32, 40, 0.06);
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 1.6rem;
+            letter-spacing: -0.04em;
+        }
+
+        .metric span {
+            display: block;
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .hero-panel {
+            padding: 28px;
+            border-radius: var(--radius-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 22px;
+            background:
+                linear-gradient(180deg, rgba(255, 253, 249, 0.92), rgba(255, 245, 238, 0.82)),
+                var(--surface);
+        }
+
+        .panel-art {
+            min-height: 260px;
+            border-radius: 26px;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(219, 92, 57, 0.92), rgba(242, 153, 114, 0.94));
+        }
+
+        .panel-art::before,
+        .panel-art::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .panel-art::before {
+            width: 180px;
+            height: 180px;
+            top: -38px;
+            right: -24px;
+        }
+
+        .panel-art::after {
+            width: 220px;
+            height: 220px;
+            left: -60px;
+            bottom: -70px;
+        }
+
+        .panel-stack {
+            position: absolute;
+            inset: 24px;
+            display: grid;
+            align-content: end;
+            gap: 14px;
+        }
+
+        .panel-chip,
+        .panel-note {
+            width: fit-content;
+            padding: 10px 14px;
+            border-radius: 999px;
+            color: #fff;
+            background: rgba(24, 32, 40, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .panel-note {
+            border-radius: 20px;
+            max-width: 240px;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .panel-text {
+            display: grid;
+            gap: 12px;
+        }
+
+        .panel-text p {
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        section {
+            padding: 28px 0;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 22px;
+        }
+
+        .section-head p {
+            max-width: 34rem;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .section-label {
+            margin-bottom: 10px;
+            color: var(--accent-deep);
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .projects-grid,
+        .team-grid,
+        .contact-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .projects-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-card {
+            padding: 28px;
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::after {
+            content: "";
+            position: absolute;
+            inset: auto -20px -45px auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(219, 92, 57, 0.08);
+        }
+
+        .project-tag,
+        .team-role {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            background: var(--accent-soft);
+            color: var(--accent-deep);
+        }
+
+        .section-card h3 {
+            margin-top: 18px;
+            font-size: 1.7rem;
+            letter-spacing: -0.04em;
+        }
+
+        .section-card p {
+            margin-top: 14px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 28px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .team-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .team-card {
+            display: grid;
+            gap: 16px;
+        }
+
+        .avatar {
+            width: 68px;
+            height: 68px;
+            display: grid;
+            place-items: center;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
+            background: linear-gradient(135deg, #182028, #425364);
+            box-shadow: 0 14px 30px rgba(24, 32, 40, 0.16);
+        }
+
+        .team-card h3 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .contact-grid {
+            grid-template-columns: 1.1fr 0.9fr;
+        }
+
+        .contact-card {
+            padding: 32px;
+            border-radius: var(--radius-lg);
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .contact-item {
+            padding: 18px 20px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.66);
+            border: 1px solid rgba(24, 32, 40, 0.06);
+        }
+
+        .contact-item small {
+            display: block;
+            color: var(--muted);
+            margin-bottom: 8px;
+            font-size: 0.84rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .footer {
+            padding: 24px 0 50px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .contact-grid,
+            .team-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-copy,
+            .hero-panel {
+                padding: 32px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .topbar-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                padding-top: 34px;
+            }
+
+            .hero-copy,
+            .hero-panel,
+            .section-card,
+            .contact-card {
+                padding: 24px;
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>🅽🆄🅰🅽 Project</h1>
-    <p>欢迎来到 Nuan Project！</p>
-    
-    <div class="projects">
-        <div class="project-card">
-            <h2>🦞 龙虾打工平台</h2>
-            <p>给每个人的龙虾找一个打工的地方</p>
-            <a href="https://github.com/nuan/lobster-work" class="btn">查看项目</a>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="#home">
+                <span class="brand-mark">NP</span>
+                <span>Nuan Project</span>
+            </a>
+            <nav class="nav">
+                <a href="#projects">Projects</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+                <a class="nav-cta" href="#contact">Start a Conversation</a>
+            </nav>
         </div>
-        
-        <div class="project-card">
-            <h2>🌐 官网</h2>
-            <p>官方网站 (建设中)</p>
-            <a href="https://github.com/nuan/website" class="btn">查看项目</a>
-        </div>
-    </div>
+    </header>
+
+    <main id="home" class="page-shell">
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow">Designing clear digital experiences</span>
+                    <h1>Build warm, polished products that people actually enjoy using.</h1>
+                    <p>
+                        Nuan Project focuses on approachable digital experiences for product websites and practical tools.
+                        We combine product thinking, modern frontend craftsmanship, and sharp visual systems to turn ideas
+                        into pages that feel refined from the first screen.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#projects">Explore Projects</a>
+                        <a class="button button-secondary" href="#team">Meet the Team</a>
+                    </div>
+                    <div class="hero-metrics">
+                        <div class="metric">
+                            <strong>02</strong>
+                            <span>Core projects showcased</span>
+                        </div>
+                        <div class="metric">
+                            <strong>03</strong>
+                            <span>Team roles in collaboration</span>
+                        </div>
+                        <div class="metric">
+                            <strong>24h</strong>
+                            <span>Fast contact turnaround target</span>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="hero-panel">
+                    <div class="panel-art">
+                        <div class="panel-stack">
+                            <div class="panel-chip">Creative frontend system</div>
+                            <div class="panel-note">A clean homepage should feel calm, modern, and highly legible on every screen size.</div>
+                        </div>
+                    </div>
+                    <div class="panel-text">
+                        <span class="section-label">Overview</span>
+                        <h2>Focused on elegant presentation with practical structure.</h2>
+                        <p>
+                            This landing page is designed as a compact brand front door: fast to scan, visually balanced,
+                            and clear about what Nuan Project is building right now.
+                        </p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-head">
+                <div>
+                    <div class="section-label">Projects Showcase</div>
+                    <h2>Current work under the Nuan Project umbrella.</h2>
+                </div>
+                <p>
+                    Two active entries define the current homepage story: the official Website experience and the Lobster Work platform.
+                </p>
+            </div>
+            <div class="projects-grid">
+                <article class="section-card">
+                    <span class="project-tag">Website</span>
+                    <h3>Official Website</h3>
+                    <p>
+                        The public-facing home for Nuan Project. It introduces the brand, gathers project context, and sets
+                        a visual standard for future product pages.
+                    </p>
+                    <div class="project-meta">
+                        <span>Landing page</span>
+                        <span>Brand presentation</span>
+                        <span>Responsive frontend</span>
+                    </div>
+                    <a class="project-link" href="#contact">Discuss this project →</a>
+                </article>
+
+                <article class="section-card">
+                    <span class="project-tag">Lobster Work</span>
+                    <h3>Lobster Work</h3>
+                    <p>
+                        A practical platform concept focused on connecting people with flexible work opportunities through a
+                        direct and friendly digital workflow.
+                    </p>
+                    <div class="project-meta">
+                        <span>Platform concept</span>
+                        <span>User flow design</span>
+                        <span>Product exploration</span>
+                    </div>
+                    <a class="project-link" href="#contact">Talk about collaboration →</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="team">
+            <div class="section-head">
+                <div>
+                    <div class="section-label">Team</div>
+                    <h2>A small team with clear ownership.</h2>
+                </div>
+                <p>
+                    Nuan Project moves with a compact structure so decisions stay fast and every part of the product has direct accountability.
+                </p>
+            </div>
+            <div class="team-grid">
+                <article class="section-card team-card">
+                    <div class="avatar">AT</div>
+                    <div class="team-role">Manager</div>
+                    <h3>Atlas</h3>
+                    <p>
+                        Guides product direction, prioritization, and collaboration across initiatives to keep execution focused.
+                    </p>
+                </article>
+
+                <article class="section-card team-card">
+                    <div class="avatar">FE</div>
+                    <div class="team-role">Frontend</div>
+                    <h3>Codex Agent</h3>
+                    <p>
+                        Shapes the interface system, responsive layouts, and implementation quality for polished user-facing experiences.
+                    </p>
+                </article>
+
+                <article class="section-card team-card">
+                    <div class="avatar">BE</div>
+                    <div class="team-role">Backend</div>
+                    <h3>Codex Agent</h3>
+                    <p>
+                        Supports service architecture, data flow, and delivery foundations needed to turn concepts into working products.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-head">
+                <div>
+                    <div class="section-label">Contact</div>
+                    <h2>Start the next conversation from here.</h2>
+                </div>
+                <p>
+                    Whether you want to discuss a collaboration, a new homepage, or a product idea, this section gives a simple entry point.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Let's build something clear and useful.</h3>
+                    <p style="margin-top: 14px; color: var(--muted); line-height: 1.8;">
+                        Nuan Project values concise communication, deliberate design, and practical delivery. Reach out with your
+                        project background, goals, and timeline to start with the right context.
+                    </p>
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <small>Email</small>
+                            <strong>hello@nuan-project.local</strong>
+                        </div>
+                        <div class="contact-item">
+                            <small>Location</small>
+                            <strong>Shanghai · Remote Friendly</strong>
+                        </div>
+                        <div class="contact-item">
+                            <small>Response Window</small>
+                            <strong>Within 1 business day</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="contact-card">
+                    <h3>What to include</h3>
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <small>01</small>
+                            <strong>Project summary and current stage</strong>
+                        </div>
+                        <div class="contact-item">
+                            <small>02</small>
+                            <strong>Main audience or business scenario</strong>
+                        </div>
+                        <div class="contact-item">
+                            <small>03</small>
+                            <strong>Expected timeline and collaboration scope</strong>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-shell footer">
+        <p>© 2026 Nuan Project. Crafted for a clean first impression.</p>
+    </footer>
 </body>
 </html>
